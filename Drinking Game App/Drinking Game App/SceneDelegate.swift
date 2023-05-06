@@ -1,9 +1,3 @@
-//
-//  SceneDelegate.swift
-//  Drinking Game App
-//
-//  Created by Filip Vlašić on 03.05.2023..
-//
 
 import UIKit
 
@@ -16,7 +10,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
       guard let windowScene = (scene as? UIWindowScene) else { return }
       window = UIWindow(windowScene: windowScene)
-      let vc = MainViewController()
+      let vc = WelcomeViewController()
       window?.rootViewController = vc
       window?.makeKeyAndVisible()
   }

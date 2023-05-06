@@ -11,8 +11,10 @@
 		2F1AF6EC2A02C7B50028F78A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1AF6EB2A02C7B50028F78A /* SceneDelegate.swift */; };
 		2F1AF6F32A02C7B50028F78A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F1AF6F22A02C7B50028F78A /* Assets.xcassets */; };
 		2F1AF6F62A02C7B50028F78A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F1AF6F42A02C7B50028F78A /* LaunchScreen.storyboard */; };
-		2F1AF7002A02C97E0028F78A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1AF6FF2A02C97E0028F78A /* MainViewController.swift */; };
 		8C1E93FB2A02E1D7006620F1 /* PureLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 8C1E93FA2A02E1D7006620F1 /* PureLayout */; };
+		8C7903DB2A0660A500DE1D4A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7903DA2A0660A500DE1D4A /* WelcomeViewController.swift */; };
+		8C7903DD2A0660DD00DE1D4A /* GamesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7903DC2A0660DD00DE1D4A /* GamesListViewController.swift */; };
+		8C7903DF2A06616400DE1D4A /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7903DE2A06616400DE1D4A /* AppRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +24,9 @@
 		2F1AF6F22A02C7B50028F78A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F1AF6F52A02C7B50028F78A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F1AF6F72A02C7B50028F78A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2F1AF6FF2A02C97E0028F78A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8C7903DA2A0660A500DE1D4A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		8C7903DC2A0660DD00DE1D4A /* GamesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesListViewController.swift; sourceTree = "<group>"; };
+		8C7903DE2A06616400DE1D4A /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +64,12 @@
 				2F1AF7032A02D0290028F78A /* Models */,
 				2F1AF7022A02D0240028F78A /* Views */,
 				2F1AF7012A02D0170028F78A /* Controllers */,
-				2F1AF6FF2A02C97E0028F78A /* MainViewController.swift */,
 				2F1AF6E92A02C7B50028F78A /* AppDelegate.swift */,
 				2F1AF6EB2A02C7B50028F78A /* SceneDelegate.swift */,
 				2F1AF6F22A02C7B50028F78A /* Assets.xcassets */,
 				2F1AF6F42A02C7B50028F78A /* LaunchScreen.storyboard */,
 				2F1AF6F72A02C7B50028F78A /* Info.plist */,
+				8C7903DE2A06616400DE1D4A /* AppRouter.swift */,
 			);
 			path = "Drinking Game App";
 			sourceTree = "<group>";
@@ -73,6 +77,8 @@
 		2F1AF7012A02D0170028F78A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8C7903DC2A0660DD00DE1D4A /* GamesListViewController.swift */,
+				8C7903DA2A0660A500DE1D4A /* WelcomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -174,8 +180,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F1AF7002A02C97E0028F78A /* MainViewController.swift in Sources */,
+				8C7903DD2A0660DD00DE1D4A /* GamesListViewController.swift in Sources */,
+				8C7903DB2A0660A500DE1D4A /* WelcomeViewController.swift in Sources */,
 				2F1AF6EA2A02C7B50028F78A /* AppDelegate.swift in Sources */,
+				8C7903DF2A06616400DE1D4A /* AppRouter.swift in Sources */,
 				2F1AF6EC2A02C7B50028F78A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

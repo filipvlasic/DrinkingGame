@@ -5,14 +5,13 @@ import PureLayout
 class WelcomeViewController: UIViewController {
     
     var router: AppRouter!
-    private var welcomeButton = UIButton()
-    private var welcomeLabel = UILabel()
+    private var welcomeButton: UIButton!
+    private var welcomeLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        layoutViews()
-        styleViews()
+        buildViews()
+        addActions()
         
     }
     
@@ -25,26 +24,48 @@ class WelcomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func buildViews() {
+        createViews()
+        layoutViews()
+        styleViews()
+    }
+    
+    private func createViews() {
+        welcomeLabel = UILabel()
+        welcomeButton = UIButton()
+    }
+    
     private func layoutViews() {
         view.addSubview(welcomeLabel)
-        welcomeLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: 20)
-        welcomeLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: 20)
-        welcomeLabel.autoPinEdge(toSuperviewSafeArea: .top, withInset: 40)
+        welcomeLabel.autoAlignAxis(toSuperviewAxis: .vertical)
+        welcomeLabel.autoPinEdge(toSuperviewSafeArea: .top, withInset: 100)
         
         view.addSubview(welcomeButton)
-        welcomeButton.autoPinEdge(toSuperviewEdge: .leading, withInset: 20)
-        welcomeButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 20)
-        welcomeButton.autoPinEdge(.top, to: .bottom, of: welcomeLabel, withOffset: 150)
+        welcomeButton.autoPinEdge(toSuperviewEdge: .leading, withInset: 30)
+        welcomeButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 30)
+        welcomeButton.autoPinEdge(.top, to: .bottom, of: welcomeLabel, withOffset: 250)
+        welcomeButton.autoSetDimension(.height, toSize: 60)
     }
     
     private func styleViews() {
         welcomeButton.backgroundColor = UIColor(red: 76/255, green: 178/255, blue: 223/255, alpha: 1)
-        welcomeButton.layer.cornerRadius = 5
+        welcomeButton.layer.cornerRadius = 15
         welcomeButton.layer.borderWidth = 2
         welcomeButton.layer.borderColor = UIColor.systemBlue.cgColor
+        welcomeButton.setTitle("Idemo pit!", for: .normal)
         
         welcomeLabel.text = "Dobrodosle pijandure!"
-        welcomeLabel.highlightedTextColor = .blue
+        welcomeLabel.font = UIFont.systemFont(ofSize: 25)
+        view.backgroundColor = .lightGray
+    }
+    
+    private func addActions() {
+        welcomeButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+    }
+    
+    @objc func buttonAction(sender: UIButton!) {
+        router.showGamesList()
+        print("huehue")
     }
     
 }

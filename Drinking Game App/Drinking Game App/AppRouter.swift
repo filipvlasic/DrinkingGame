@@ -17,7 +17,7 @@ class AppRouter {
     }
     
     func showGamesList() {
-        let gamesListViewController = GamesListViewController()
+        let gamesListViewController = GamesListViewController(router: self)
         self.navigationController?.pushViewController(gamesListViewController, animated: true)
     }
     

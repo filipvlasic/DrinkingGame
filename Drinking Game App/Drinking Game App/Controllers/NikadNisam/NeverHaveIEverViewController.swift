@@ -3,9 +3,25 @@ import UIKit
 
 class NeverHaveIEverViewController: UIViewController {
     
+    private var dataLoaded = false {
+        didSet {
+            startButton.isEnabled = true
+            navigationItem.rightBarButtonItem?.isEnabled = true
+        }
+    }
+    
+    private var selectedType: String {
+        questionTypes[segment.selectedSegmentIndex]
+    }
+    
+    private var gameDescription: String = ""
+    private var questions: [Question] = .init()
+    private let questionTypes = ["blaga", "začinjena", "miješana"]
+    
     var router: AppRouter!
     var segment: UISegmentedControl!
-    var startButton: CustomizedButton!
+//    var startButton: CustomizedButton!
+    var startButton = CustomizedButton()
     var chooseLabel: UILabel!
     var infoButton: UIButton!
 
@@ -31,8 +47,9 @@ class NeverHaveIEverViewController: UIViewController {
     }
     
     private func createViews() {
-        segment = UISegmentedControl(items: ["Blaga", "Zacinjena", "Mjesana"])
-        startButton = CustomizedButton()
+        let items = questionTypes.map { $0.capitalized }
+        segment = UISegmentedControl(items: items)
+//        startButton = CustomizedButton()
         chooseLabel = UILabel()
         infoButton = UIButton(type: .infoLight)
         let barButton = UIBarButtonItem(customView: infoButton)
@@ -57,12 +74,19 @@ class NeverHaveIEverViewController: UIViewController {
         startButton.autoPinEdge(toSuperviewEdge: .leading, withInset: 30)
         startButton.autoPinEdge(.top, to: .bottom, of: segment, withOffset: 90)
         startButton.autoSetDimension(.height, toSize: 60)
+        
+        if !dataLoaded {
+            startButton.isEnabled = false
+            navigationItem.rightBarButtonItem?.isEnabled = false
+        }
     }
     
     private func styleViews() {
         view.backgroundColor = .lightGray
         self.title = "Nikad nisam"
         chooseLabel.text = "Koliko ste hrabri?"
+        
+        segment.selectedSegmentIndex = 0
         
         startButton.setTitle("Krenimo!", for: .normal)
     }
@@ -73,10 +97,31 @@ class NeverHaveIEverViewController: UIViewController {
     }
     
     @objc private func infoButtonTapped() {
-        router.showGameDetailsScreen()
+        router.showGameDetailsScreen(gameTitle: title!, gameDescription: gameDescription)
     }
     
     @objc private func startButtonTapped() {
-        router.showNeverHaveIEverQuestionsScreen()
+        let filteredQuestions = filterQuestions()
+        router.showNeverHaveIEverQuestionsScreen(with: filteredQuestions)
+    }
+    
+    private func filterQuestions() -> [String] {
+        let filteredQuestions = questions
+            .filter { $0.type == selectedType }
+            .map({ $0.question })
+            .shuffled()
+        if filteredQuestions.isEmpty {
+            return questions.map { $0.question }
+        } else {
+            return filteredQuestions
+        }
+    }
+}
+
+extension NeverHaveIEverViewController {
+    func configure(with model: NikadNisam) {
+        gameDescription = model.gameDescription
+        questions = model.questions
+        dataLoaded = true
     }
 }

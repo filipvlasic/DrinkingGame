@@ -3,6 +3,12 @@ import UIKit
 
 class GamesListViewController: UIViewController {
     
+    private enum Constants {
+        static let delay: CGFloat = 0
+    }
+    
+    private let apiClient: APIClient = MockAPIClient()
+    
     var router: AppRouter!
     private var truthOrDareButton: CustomizedButton!
     private var neverHaveIEverButton: CustomizedButton!
@@ -72,8 +78,28 @@ class GamesListViewController: UIViewController {
         truthOrDareButton.addTarget(self, action: #selector(truthOrDareButtonAction), for: .touchUpInside)
     }
     
+    private func fetchNeverHaveIEverData(completion: @escaping (NikadNisam) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.delay) { [weak self] in
+            self?.apiClient.getNeverHaveIEverData { amNikadNisam, error in
+                guard let amNikadNisam else { return }
+                let questions: [Question] = amNikadNisam.questions.compactMap { question in
+                    return Question(type: question.type, question: question.question)
+                }
+                let nikadNisam = NikadNisam(
+                    gameTitle: amNikadNisam.gameTitle,
+                    gameDescription: amNikadNisam.gameDescription,
+                    questions: questions)
+                
+                completion(nikadNisam)
+            }
+        }
+    }
+    
     @objc func neverHaveIEverButtonAction(sender: UIButton!) {
-        router.showNeverHaveIEverScreen()
+        let neverHaveIEverViewController = router.showNeverHaveIEverScreen()
+        fetchNeverHaveIEverData { nikadNisam in
+            neverHaveIEverViewController.configure(with: nikadNisam)
+        }
     }
     
     @objc func igra3ButtonAction(sender: UIButton!) {

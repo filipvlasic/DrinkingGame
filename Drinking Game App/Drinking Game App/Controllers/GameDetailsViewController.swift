@@ -3,8 +3,19 @@ import UIKit
 
 class GameDetailsViewController: UIViewController {
     
-    private var gameDescriptionLabel: UILabel!
+    private let titleLabel = UILabel()
+    private let descriptionLabel = UILabel()
 
+    init(gameTitle: String, gameDescription: String) {
+        titleLabel.text = gameTitle
+        descriptionLabel.text = gameDescription
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         buildViews()
@@ -17,25 +28,33 @@ class GameDetailsViewController: UIViewController {
     }
     
     private func createViews() {
-        gameDescriptionLabel = UILabel()
+
     }
     
     private func layoutViews() {
-        view.addSubview(gameDescriptionLabel)
-        gameDescriptionLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: 30)
-        gameDescriptionLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: 30)
-        gameDescriptionLabel.autoPinEdge(toSuperviewSafeArea: .top, withInset: 30)
-        gameDescriptionLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: 30, relation: .greaterThanOrEqual)
+        view.addSubview(titleLabel)
+        titleLabel.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 30, left: 16, bottom: 0, right: 16), excludingEdge: .bottom)
+        
+        view.addSubview(descriptionLabel)
+        descriptionLabel.autoPinEdge(.top, to: .bottom, of: titleLabel, withOffset: 20)
+        descriptionLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: 30)
+        descriptionLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: 30)
+        descriptionLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: 30, relation: .greaterThanOrEqual)
     }
     
     private func styleViews() {
         view.backgroundColor = .lightGray
-        gameDescriptionLabel.text = "Truth or dare is a fun game to play with your friends, especially at sleepovers and during other times when you probably won’t be disturbed by siblings, parents, or pets. While things might get weird and sometimes uncomfortable, truth or dare is often really funny as well."
-        gameDescriptionLabel.textColor = .black
-        gameDescriptionLabel.layer.borderColor = UIColor.blue.cgColor
-        gameDescriptionLabel.layer.borderWidth = 1.0
-        gameDescriptionLabel.layer.cornerRadius = 5.0
-        gameDescriptionLabel.numberOfLines = 0
+        
+        titleLabel.textColor = .black
+        titleLabel.font = .systemFont(ofSize: 36, weight: .bold)
+        titleLabel.textAlignment = .center
+        titleLabel.numberOfLines = 0
+        
+        descriptionLabel.textColor = .black
+        descriptionLabel.layer.borderColor = UIColor.blue.cgColor
+        descriptionLabel.layer.borderWidth = 1.0
+        descriptionLabel.layer.cornerRadius = 5.0
+        descriptionLabel.numberOfLines = 0
     }
 
 }

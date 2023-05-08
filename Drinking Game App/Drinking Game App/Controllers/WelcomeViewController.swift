@@ -5,7 +5,7 @@ import PureLayout
 class WelcomeViewController: UIViewController {
     
     var router: AppRouter!
-    private var welcomeButton: UIButton!
+    private var welcomeButton: CutomizedButton!
     private var welcomeLabel: UILabel!
 
     override func viewDidLoad() {
@@ -32,7 +32,7 @@ class WelcomeViewController: UIViewController {
     
     private func createViews() {
         welcomeLabel = UILabel()
-        welcomeButton = UIButton()
+        welcomeButton = CutomizedButton()
     }
     
     private func layoutViews() {
@@ -48,10 +48,6 @@ class WelcomeViewController: UIViewController {
     }
     
     private func styleViews() {
-        welcomeButton.backgroundColor = UIColor(red: 76/255, green: 178/255, blue: 223/255, alpha: 1)
-        welcomeButton.layer.cornerRadius = 15
-        welcomeButton.layer.borderWidth = 2
-        welcomeButton.layer.borderColor = UIColor.systemBlue.cgColor
         welcomeButton.setTitle("Idemo pit!", for: .normal)
         
         welcomeLabel.text = "Dobrodosle pijandure!"
@@ -65,7 +61,6 @@ class WelcomeViewController: UIViewController {
     
     @objc func buttonAction(sender: UIButton!) {
         router.showGamesList()
-        print("huehue")
     }
     
 }

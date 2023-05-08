@@ -18,7 +18,22 @@ class AppRouter {
     
     func showGamesList() {
         let gamesListViewController = GamesListViewController(router: self)
-        self.navigationController?.pushViewController(gamesListViewController, animated: true)
+        self.navigationController.pushViewController(gamesListViewController, animated: true)
+    }
+    
+    func showNeverHaveIEverScreen() {
+        let neverHaveIEverViewController = NeverHaveIEverViewController(router: self)
+        self.navigationController.pushViewController(neverHaveIEverViewController, animated: true)
+    }
+    
+    func showIgra3Screen() {
+        let igra3ViewController = Igra3ViewController(router: self)
+        self.navigationController.pushViewController(igra3ViewController, animated: true)
+    }
+    
+    func showTruthOrDareScreen() {
+        let truthOrDare = TruthOrDareViewController(router: self)
+        self.navigationController.pushViewController(truthOrDare, animated: true)
     }
     
 }

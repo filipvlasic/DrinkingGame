@@ -15,6 +15,10 @@
 		8C7903DB2A0660A500DE1D4A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7903DA2A0660A500DE1D4A /* WelcomeViewController.swift */; };
 		8C7903DD2A0660DD00DE1D4A /* GamesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7903DC2A0660DD00DE1D4A /* GamesListViewController.swift */; };
 		8C7903DF2A06616400DE1D4A /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7903DE2A06616400DE1D4A /* AppRouter.swift */; };
+		8CBD99D82A08EA3000A9CF20 /* NeverHaveIEverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD99D72A08EA3000A9CF20 /* NeverHaveIEverViewController.swift */; };
+		8CBD99DA2A08EA4100A9CF20 /* Igra3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD99D92A08EA4100A9CF20 /* Igra3ViewController.swift */; };
+		8CBD99DC2A08F00800A9CF20 /* TruthOrDareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD99DB2A08F00800A9CF20 /* TruthOrDareViewController.swift */; };
+		8CBD99DE2A08F38900A9CF20 /* CutomizedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD99DD2A08F38900A9CF20 /* CutomizedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		8C7903DA2A0660A500DE1D4A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		8C7903DC2A0660DD00DE1D4A /* GamesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesListViewController.swift; sourceTree = "<group>"; };
 		8C7903DE2A06616400DE1D4A /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		8CBD99D72A08EA3000A9CF20 /* NeverHaveIEverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeverHaveIEverViewController.swift; sourceTree = "<group>"; };
+		8CBD99D92A08EA4100A9CF20 /* Igra3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Igra3ViewController.swift; sourceTree = "<group>"; };
+		8CBD99DB2A08F00800A9CF20 /* TruthOrDareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruthOrDareViewController.swift; sourceTree = "<group>"; };
+		8CBD99DD2A08F38900A9CF20 /* CutomizedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CutomizedButton.swift; path = "Drinking Game App/Controllers/CutomizedButton.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +87,9 @@
 			children = (
 				8C7903DC2A0660DD00DE1D4A /* GamesListViewController.swift */,
 				8C7903DA2A0660A500DE1D4A /* WelcomeViewController.swift */,
+				8CBD99D72A08EA3000A9CF20 /* NeverHaveIEverViewController.swift */,
+				8CBD99D92A08EA4100A9CF20 /* Igra3ViewController.swift */,
+				8CBD99DB2A08F00800A9CF20 /* TruthOrDareViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -86,6 +97,7 @@
 		2F1AF7022A02D0240028F78A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8CBD99DD2A08F38900A9CF20 /* CutomizedButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,10 +192,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CBD99DE2A08F38900A9CF20 /* CutomizedButton.swift in Sources */,
 				8C7903DD2A0660DD00DE1D4A /* GamesListViewController.swift in Sources */,
+				8CBD99D82A08EA3000A9CF20 /* NeverHaveIEverViewController.swift in Sources */,
 				8C7903DB2A0660A500DE1D4A /* WelcomeViewController.swift in Sources */,
 				2F1AF6EA2A02C7B50028F78A /* AppDelegate.swift in Sources */,
 				8C7903DF2A06616400DE1D4A /* AppRouter.swift in Sources */,
+				8CBD99DC2A08F00800A9CF20 /* TruthOrDareViewController.swift in Sources */,
+				8CBD99DA2A08EA4100A9CF20 /* Igra3ViewController.swift in Sources */,
 				2F1AF6EC2A02C7B50028F78A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,12 +5,14 @@ class NeverHaveIEverViewController: UIViewController {
     
     var router: AppRouter!
     var segment: UISegmentedControl!
-    var startButton: CutomizedButton!
+    var startButton: CustomizedButton!
     var chooseLabel: UILabel!
+    var infoButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         buildViews()
+        addActions()
     }
     
     init(router: AppRouter) {
@@ -30,8 +32,11 @@ class NeverHaveIEverViewController: UIViewController {
     
     private func createViews() {
         segment = UISegmentedControl(items: ["Blaga", "Zacinjena", "Mjesana"])
-        startButton = CutomizedButton()
+        startButton = CustomizedButton()
         chooseLabel = UILabel()
+        infoButton = UIButton(type: .infoLight)
+        let barButton = UIBarButtonItem(customView: infoButton)
+        self.navigationItem.rightBarButtonItem = barButton
     }
     
     private func layoutViews() {
@@ -62,5 +67,16 @@ class NeverHaveIEverViewController: UIViewController {
         startButton.setTitle("Krenimo!", for: .normal)
     }
     
-
+    private func addActions() {
+        infoButton.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)
+        startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func infoButtonTapped() {
+        router.showGameDetailsScreen()
+    }
+    
+    @objc private func startButtonTapped() {
+        router.showNeverHaveIEverQuestionsScreen()
+    }
 }

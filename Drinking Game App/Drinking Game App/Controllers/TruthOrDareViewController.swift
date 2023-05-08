@@ -5,13 +5,15 @@ class TruthOrDareViewController: UIViewController {
 
     var router: AppRouter!
     var segment: UISegmentedControl!
-    var truthButton: CutomizedButton!
-    var dareButton: CutomizedButton!
+    var truthButton: CustomizedButton!
+    var dareButton: CustomizedButton!
     var chooseLabel: UILabel!
+    var infoButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         buildViews()
+        addActions()
     }
     
     init(router: AppRouter) {
@@ -31,9 +33,12 @@ class TruthOrDareViewController: UIViewController {
     
     private func createViews() {
         segment = UISegmentedControl(items: ["Blaga", "Zacinjena", "Mjesana"])
-        truthButton = CutomizedButton()
-        dareButton = CutomizedButton()
+        truthButton = CustomizedButton()
+        dareButton = CustomizedButton()
         chooseLabel = UILabel()
+        infoButton = UIButton(type: .infoLight)
+        let barButton = UIBarButtonItem(customView: infoButton)
+        self.navigationItem.rightBarButtonItem = barButton
     }
     
     private func layoutViews() {
@@ -71,6 +76,20 @@ class TruthOrDareViewController: UIViewController {
         truthButton.setTitle("Istina", for: .normal)
         
         dareButton.setTitle("Izazov", for: .normal)
+    }
+    
+    private func addActions() {
+        infoButton.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)
+        truthButton.addTarget(self, action: #selector(truthDareTapped), for: .touchUpInside)
+        dareButton.addTarget(self, action: #selector(truthDareTapped), for: .touchUpInside)
+    }
+    
+    @objc private func infoButtonTapped() {
+        router.showGameDetailsScreen()
+    }
+    
+    @objc private func truthDareTapped() {
+        router.showTruthOrDareQuestionsScreen()
     }
 
 }

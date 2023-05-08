@@ -32,8 +32,27 @@ class AppRouter {
     }
     
     func showTruthOrDareScreen() {
-        let truthOrDare = TruthOrDareViewController(router: self)
-        self.navigationController.pushViewController(truthOrDare, animated: true)
+        let truthOrDareViewController = TruthOrDareViewController(router: self)
+        self.navigationController.pushViewController(truthOrDareViewController, animated: true)
+    }
+    
+    func showGameDetailsScreen() {
+        let gameDetailsViewController = GameDetailsViewController()
+        self.navigationController.present(gameDetailsViewController, animated: true)
+    }
+    
+    func showTruthOrDareQuestionsScreen() {
+        let truthOrDareQuestionsViewController = TruthOrDareQuestionsViewController(router: self)
+        self.navigationController.pushViewController(truthOrDareQuestionsViewController, animated: true)
+    }
+    
+    func popQuestionsScreen() {
+        self.navigationController.popViewController(animated: true)
+    }
+    
+    func showNeverHaveIEverQuestionsScreen() {
+        let neverHaveIEverQuestionsViewController = NeverHaveIEverQuestionsViewController()
+        self.navigationController.pushViewController(neverHaveIEverQuestionsViewController, animated: true)
     }
     
 }

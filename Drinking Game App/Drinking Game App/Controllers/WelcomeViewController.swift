@@ -5,14 +5,13 @@ import PureLayout
 class WelcomeViewController: UIViewController {
     
     var router: AppRouter!
-    private var welcomeButton: CutomizedButton!
+    private var welcomeButton: CustomizedButton!
     private var welcomeLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         buildViews()
         addActions()
-        
     }
     
     init(router: AppRouter) {
@@ -32,7 +31,7 @@ class WelcomeViewController: UIViewController {
     
     private func createViews() {
         welcomeLabel = UILabel()
-        welcomeButton = CutomizedButton()
+        welcomeButton = CustomizedButton()
     }
     
     private func layoutViews() {

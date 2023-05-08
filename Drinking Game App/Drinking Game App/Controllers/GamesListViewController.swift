@@ -4,9 +4,9 @@ import UIKit
 class GamesListViewController: UIViewController {
     
     var router: AppRouter!
-    private var truthOrDareButton: CutomizedButton!
-    private var neverHaveIEverButton: CutomizedButton!
-    private var trecaIgra: CutomizedButton!
+    private var truthOrDareButton: CustomizedButton!
+    private var neverHaveIEverButton: CustomizedButton!
+    private var trecaIgra: CustomizedButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +30,9 @@ class GamesListViewController: UIViewController {
     }
     
     private func createViews() {
-        truthOrDareButton = CutomizedButton()
-        neverHaveIEverButton = CutomizedButton()
-        trecaIgra = CutomizedButton()
+        truthOrDareButton = CustomizedButton()
+        neverHaveIEverButton = CustomizedButton()
+        trecaIgra = CustomizedButton()
     }
     
     private func layoutViews() {

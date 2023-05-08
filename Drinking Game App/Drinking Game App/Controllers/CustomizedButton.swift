@@ -1,13 +1,7 @@
-//
-//  CutomizedButton.swift
-//  Drinking Game App
-//
-//  Created by Ivan Milicevic on 08.05.2023..
-//
 
 import UIKit
 
-class CutomizedButton: UIButton {
+class CustomizedButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

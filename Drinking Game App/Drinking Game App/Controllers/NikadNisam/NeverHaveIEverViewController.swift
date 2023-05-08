@@ -1,7 +1,11 @@
 
 import UIKit
 
-class NeverHaveIEverViewController: UIViewController {
+class NeverHaveIEverViewController: BaseViewController {
+    
+    private enum Constants {
+        static let segmentHeight: CGFloat = 40
+    }
     
     private var dataLoaded = false {
         didSet {
@@ -20,20 +24,15 @@ class NeverHaveIEverViewController: UIViewController {
     
     var router: AppRouter!
     var segment: UISegmentedControl!
-//    var startButton: CustomizedButton!
-    var startButton = CustomizedButton()
+    var startButton: CustomizedButton!
     var chooseLabel: UILabel!
-    var infoButton: UIButton!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        buildViews()
-        addActions()
-    }
     
     init(router: AppRouter) {
         self.router = router
         super.init(nibName: nil, bundle: nil)
+        
+        buildViews()
+        addActions()
     }
     
     required init?(coder: NSCoder) {
@@ -49,11 +48,9 @@ class NeverHaveIEverViewController: UIViewController {
     private func createViews() {
         let items = questionTypes.map { $0.capitalized }
         segment = UISegmentedControl(items: items)
-//        startButton = CustomizedButton()
+        startButton = CustomizedButton()
         chooseLabel = UILabel()
-        infoButton = UIButton(type: .infoLight)
-        let barButton = UIBarButtonItem(customView: infoButton)
-        self.navigationItem.rightBarButtonItem = barButton
+        navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
     private func layoutViews() {
@@ -67,6 +64,7 @@ class NeverHaveIEverViewController: UIViewController {
         segment.autoPinEdge(toSuperviewEdge: .trailing, withInset: 30)
         segment.autoPinEdge(toSuperviewEdge: .leading, withInset: 30)
         segment.autoPinEdge(.top, to: .bottom, of: chooseLabel, withOffset: 20)
+        segment.autoSetDimension(.height, toSize: Constants.segmentHeight)
         
         view.addSubview(startButton)
         
@@ -83,7 +81,8 @@ class NeverHaveIEverViewController: UIViewController {
     
     private func styleViews() {
         view.backgroundColor = .lightGray
-        self.title = "Nikad nisam"
+        title = "Nikad nisam"
+        
         chooseLabel.text = "Koliko ste hrabri?"
         
         segment.selectedSegmentIndex = 0
@@ -92,8 +91,10 @@ class NeverHaveIEverViewController: UIViewController {
     }
     
     private func addActions() {
-        infoButton.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)
         startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
+        
+        navigationItem.rightBarButtonItem?.target = self
+        navigationItem.rightBarButtonItem?.action = #selector(infoButtonTapped)
     }
     
     @objc private func infoButtonTapped() {
@@ -111,7 +112,9 @@ class NeverHaveIEverViewController: UIViewController {
             .map({ $0.question })
             .shuffled()
         if filteredQuestions.isEmpty {
-            return questions.map { $0.question }
+            return questions
+                .map { $0.question }
+                .shuffled()
         } else {
             return filteredQuestions
         }

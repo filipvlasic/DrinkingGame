@@ -1,7 +1,13 @@
 
 import UIKit
 
-class NeverHaveIEverQuestionsViewController: UIViewController {
+class NeverHaveIEverQuestionsViewController: BaseViewController {
+    
+    private enum Constants {
+        static let questionSize: CGFloat = 36
+        static let animationDuration: CGFloat = 0.2
+        static let buttonSpacing: CGFloat = 100
+    }
     
     private let questions: [String]
     
@@ -62,12 +68,12 @@ class NeverHaveIEverQuestionsViewController: UIViewController {
     }
     
     private func styleViews() {
-        self.title = "Nikad nisam"
+        self.title = "Pitanja"
         view.backgroundColor = .lightGray
         questionLabel.numberOfLines = 0
         questionLabel.text = questions[0]
         questionLabel.textAlignment = .center
-        questionLabel.font = .systemFont(ofSize: 24, weight: .bold)
+        questionLabel.font = .systemFont(ofSize: Constants.questionSize, weight: .bold)
 
         nextQuestionButton.setTitle("Sljedeće", for: .normal)
         
@@ -76,7 +82,7 @@ class NeverHaveIEverQuestionsViewController: UIViewController {
         
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
-        stackView.spacing = 100
+        stackView.spacing = Constants.buttonSpacing
     }
     
     private func addActions() {
@@ -89,7 +95,6 @@ class NeverHaveIEverQuestionsViewController: UIViewController {
     private func previousQuestion() {
         if index > 0 {
             index -= 1
-//            questionLabel.text = questions[index % questions.count]
             animateQuestionLabel()
         }
     }
@@ -102,10 +107,10 @@ class NeverHaveIEverQuestionsViewController: UIViewController {
     }
     
     private func animateQuestionLabel() {
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: Constants.animationDuration) {
             self.questionLabel.alpha = 0
         } completion: { _ in
-            UIView.animate(withDuration: 0.2) {
+            UIView.animate(withDuration: Constants.animationDuration) {
                 self.questionLabel.text = self.questions[self.index]
                 self.questionLabel.alpha = 1
             }

@@ -1,5 +1,5 @@
 import Foundation
 
 protocol APIClient {
-    func getNeverHaveIEverData(completion: @escaping (AMNIkadNisam?, Error?) -> Void)
+    func getNeverHaveIEverData(completion: @escaping (AMNIkadNisam?) -> Void)
 }

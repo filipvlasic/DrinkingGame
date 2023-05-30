@@ -21,9 +21,10 @@ class AppRouter {
         self.navigationController.pushViewController(gamesListViewController, animated: true)
     }
     
-    func showNeverHaveIEverScreen() {
+    func showNeverHaveIEverScreen() -> NeverHaveIEverViewController {
         let neverHaveIEverViewController = NeverHaveIEverViewController(router: self)
         self.navigationController.pushViewController(neverHaveIEverViewController, animated: true)
+        return neverHaveIEverViewController
     }
     
     func showIgra3Screen() {
@@ -36,8 +37,8 @@ class AppRouter {
         self.navigationController.pushViewController(truthOrDareViewController, animated: true)
     }
     
-    func showGameDetailsScreen() {
-        let gameDetailsViewController = GameDetailsViewController()
+    func showGameDetailsScreen(gameTitle: String, gameDescription: String) {
+        let gameDetailsViewController = GameDetailsViewController(gameTitle: gameTitle, gameDescription: gameDescription)
         self.navigationController.present(gameDetailsViewController, animated: true)
     }
     
@@ -50,8 +51,8 @@ class AppRouter {
         self.navigationController.popViewController(animated: true)
     }
     
-    func showNeverHaveIEverQuestionsScreen() {
-        let neverHaveIEverQuestionsViewController = NeverHaveIEverQuestionsViewController()
+    func showNeverHaveIEverQuestionsScreen(with questions: [String]) {
+        let neverHaveIEverQuestionsViewController = NeverHaveIEverQuestionsViewController(questions: questions)
         self.navigationController.pushViewController(neverHaveIEverQuestionsViewController, animated: true)
     }
     

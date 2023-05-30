@@ -85,7 +85,7 @@ class TruthOrDareViewController: UIViewController {
     }
     
     @objc private func infoButtonTapped() {
-        router.showGameDetailsScreen()
+//        router.showGameDetailsScreen()
     }
     
     @objc private func truthDareTapped() {

@@ -18,6 +18,8 @@ class CustomizedButton: UIButton {
         layer.cornerRadius = 8
         layer.borderWidth = 2
         layer.borderColor = UIColor.systemBlue.cgColor
+        setTitleColor(.systemGray, for: .disabled)
+
     }
     
     private func setShadow() {

@@ -1,7 +1,14 @@
 
 import UIKit
 
-class GamesListViewController: UIViewController {
+class GamesListViewController: BaseViewController {
+    
+    private enum Constants {
+        static let delay: CGFloat = 0
+    }
+    
+//    private let apiClient: APIClient = MockAPIClient()
+    private let apiClient: APIClient = ApiaryAPIClient()
     
     var router: AppRouter!
     private var truthOrDareButton: CustomizedButton!
@@ -61,8 +68,16 @@ class GamesListViewController: UIViewController {
     private func styleViews() {
         self.title = "Popis Igara"
         view.backgroundColor = .lightGray
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(
+//            image: UIImage(systemName: "xmark.circle"),
+//            style: .done,
+//            target: self,
+//            action: #selector(back))
+        
         truthOrDareButton.setTitle("Istina izazov", for: .normal)
+        
         neverHaveIEverButton.setTitle("Nikad nisam", for: .normal)
+        
         trecaIgra.setTitle("Treca igra", for: .normal)
     }
     
@@ -72,8 +87,26 @@ class GamesListViewController: UIViewController {
         truthOrDareButton.addTarget(self, action: #selector(truthOrDareButtonAction), for: .touchUpInside)
     }
     
+    private func fetchNeverHaveIEverData(completion: @escaping (NikadNisam) -> Void) {
+        apiClient.getNeverHaveIEverData { amNikadNisam in
+            guard let amNikadNisam else { return }
+            let questions: [Question] = amNikadNisam.questions.compactMap { question in
+                return Question(type: question.type, question: question.question)
+            }
+            let nikadNisam = NikadNisam(
+                gameTitle: amNikadNisam.gameTitle,
+                gameDescription: amNikadNisam.gameDescription,
+                questions: questions)
+            
+            completion(nikadNisam)
+        }
+    }
+    
     @objc func neverHaveIEverButtonAction(sender: UIButton!) {
-        router.showNeverHaveIEverScreen()
+        let neverHaveIEverViewController = router.showNeverHaveIEverScreen()
+        fetchNeverHaveIEverData { nikadNisam in
+            neverHaveIEverViewController.configure(with: nikadNisam)
+        }
     }
     
     @objc func igra3ButtonAction(sender: UIButton!) {

@@ -11,6 +11,14 @@
 		2F1AF6EC2A02C7B50028F78A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1AF6EB2A02C7B50028F78A /* SceneDelegate.swift */; };
 		2F1AF6F32A02C7B50028F78A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F1AF6F22A02C7B50028F78A /* Assets.xcassets */; };
 		2F1AF6F62A02C7B50028F78A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F1AF6F42A02C7B50028F78A /* LaunchScreen.storyboard */; };
+		2FA65CD72A09154C00D8BE79 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA65CD32A09154C00D8BE79 /* APIClient.swift */; };
+		2FA65CD82A09154C00D8BE79 /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA65CD42A09154C00D8BE79 /* MockAPIClient.swift */; };
+		2FA65CD92A09154C00D8BE79 /* AMNikadNisam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA65CD62A09154C00D8BE79 /* AMNikadNisam.swift */; };
+		2FA65CDB2A09158600D8BE79 /* NikadNisam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA65CDA2A09158600D8BE79 /* NikadNisam.swift */; };
+		2FA65CDE2A098C3B00D8BE79 /* ApiaryAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA65CDD2A098C3B00D8BE79 /* ApiaryAPIClient.swift */; };
+		2FA65CE12A098D8400D8BE79 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA65CE02A098D8400D8BE79 /* Alamofire */; };
+		2FA65CE62A099A4400D8BE79 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA65CE52A099A4400D8BE79 /* BaseViewController.swift */; };
+		2FA65CE82A09A4F300D8BE79 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA65CE72A09A4F300D8BE79 /* UIImage+Extensions.swift */; };
 		8C1E93FB2A02E1D7006620F1 /* PureLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 8C1E93FA2A02E1D7006620F1 /* PureLayout */; };
 		8C5E64142A08FA510007101A /* GameDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5E64132A08FA510007101A /* GameDetailsViewController.swift */; };
 		8C5E64162A0900A50007101A /* TruthOrDareQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5E64152A0900A50007101A /* TruthOrDareQuestionsViewController.swift */; };
@@ -31,6 +39,13 @@
 		2F1AF6F22A02C7B50028F78A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F1AF6F52A02C7B50028F78A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F1AF6F72A02C7B50028F78A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FA65CD32A09154C00D8BE79 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		2FA65CD42A09154C00D8BE79 /* MockAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAPIClient.swift; sourceTree = "<group>"; };
+		2FA65CD62A09154C00D8BE79 /* AMNikadNisam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMNikadNisam.swift; sourceTree = "<group>"; };
+		2FA65CDA2A09158600D8BE79 /* NikadNisam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NikadNisam.swift; sourceTree = "<group>"; };
+		2FA65CDD2A098C3B00D8BE79 /* ApiaryAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiaryAPIClient.swift; sourceTree = "<group>"; };
+		2FA65CE52A099A4400D8BE79 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		2FA65CE72A09A4F300D8BE79 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		8C5E64132A08FA510007101A /* GameDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsViewController.swift; sourceTree = "<group>"; };
 		8C5E64152A0900A50007101A /* TruthOrDareQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruthOrDareQuestionsViewController.swift; sourceTree = "<group>"; };
 		8C5E64172A0906FB0007101A /* NeverHaveIEverQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeverHaveIEverQuestionsViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C1E93FB2A02E1D7006620F1 /* PureLayout in Frameworks */,
+				2FA65CE12A098D8400D8BE79 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +90,7 @@
 		2F1AF6E82A02C7B50028F78A /* Drinking Game App */ = {
 			isa = PBXGroup;
 			children = (
+				2FA65CE22A0998C800D8BE79 /* Extensions */,
 				2F1AF7042A02D04E0028F78A /* Network */,
 				2F1AF7032A02D0290028F78A /* Models */,
 				2F1AF7022A02D0240028F78A /* Views */,
@@ -91,9 +108,9 @@
 		2F1AF7012A02D0170028F78A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2FA65CDC2A0915B100D8BE79 /* NikadNisam */,
 				8C7903DC2A0660DD00DE1D4A /* GamesListViewController.swift */,
 				8C7903DA2A0660A500DE1D4A /* WelcomeViewController.swift */,
-				8CBD99D72A08EA3000A9CF20 /* NeverHaveIEverViewController.swift */,
 				8CBD99D92A08EA4100A9CF20 /* Igra3ViewController.swift */,
 				8CBD99DB2A08F00800A9CF20 /* TruthOrDareViewController.swift */,
 				8C5E64132A08FA510007101A /* GameDetailsViewController.swift */,
@@ -114,6 +131,7 @@
 		2F1AF7032A02D0290028F78A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2FA65CDA2A09158600D8BE79 /* NikadNisam.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -121,8 +139,45 @@
 		2F1AF7042A02D04E0028F78A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2FA65CD22A09154C00D8BE79 /* APIClient */,
+				2FA65CD52A09154C00D8BE79 /* APIModel */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		2FA65CD22A09154C00D8BE79 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				2FA65CD32A09154C00D8BE79 /* APIClient.swift */,
+				2FA65CD42A09154C00D8BE79 /* MockAPIClient.swift */,
+				2FA65CDD2A098C3B00D8BE79 /* ApiaryAPIClient.swift */,
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
+		2FA65CD52A09154C00D8BE79 /* APIModel */ = {
+			isa = PBXGroup;
+			children = (
+				2FA65CD62A09154C00D8BE79 /* AMNikadNisam.swift */,
+			);
+			path = APIModel;
+			sourceTree = "<group>";
+		};
+		2FA65CDC2A0915B100D8BE79 /* NikadNisam */ = {
+			isa = PBXGroup;
+			children = (
+				8CBD99D72A08EA3000A9CF20 /* NeverHaveIEverViewController.swift */,
+			);
+			path = NikadNisam;
+			sourceTree = "<group>";
+		};
+		2FA65CE22A0998C800D8BE79 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2FA65CE52A099A4400D8BE79 /* BaseViewController.swift */,
+				2FA65CE72A09A4F300D8BE79 /* UIImage+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +198,7 @@
 			name = "Drinking Game App";
 			packageProductDependencies = (
 				8C1E93FA2A02E1D7006620F1 /* PureLayout */,
+				2FA65CE02A098D8400D8BE79 /* Alamofire */,
 			);
 			productName = "Drinking Game App";
 			productReference = 2F1AF6E62A02C7B50028F78A /* Drinking Game App.app */;
@@ -174,6 +230,7 @@
 			mainGroup = 2F1AF6DD2A02C7B50028F78A;
 			packageReferences = (
 				8C1E93F92A02E1D7006620F1 /* XCRemoteSwiftPackageReference "PureLayout" */,
+				2FA65CDF2A098D8400D8BE79 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 2F1AF6E72A02C7B50028F78A /* Products */;
 			projectDirPath = "";
@@ -204,13 +261,20 @@
 				8C5E64162A0900A50007101A /* TruthOrDareQuestionsViewController.swift in Sources */,
 				8CBD99DE2A08F38900A9CF20 /* CustomizedButton.swift in Sources */,
 				8C7903DD2A0660DD00DE1D4A /* GamesListViewController.swift in Sources */,
+				2FA65CD82A09154C00D8BE79 /* MockAPIClient.swift in Sources */,
 				8CBD99D82A08EA3000A9CF20 /* NeverHaveIEverViewController.swift in Sources */,
+				2FA65CE62A099A4400D8BE79 /* BaseViewController.swift in Sources */,
 				8C7903DB2A0660A500DE1D4A /* WelcomeViewController.swift in Sources */,
+				2FA65CD92A09154C00D8BE79 /* AMNikadNisam.swift in Sources */,
 				2F1AF6EA2A02C7B50028F78A /* AppDelegate.swift in Sources */,
 				8C7903DF2A06616400DE1D4A /* AppRouter.swift in Sources */,
 				8C5E64182A0906FB0007101A /* NeverHaveIEverQuestionsViewController.swift in Sources */,
+				2FA65CDE2A098C3B00D8BE79 /* ApiaryAPIClient.swift in Sources */,
+				2FA65CDB2A09158600D8BE79 /* NikadNisam.swift in Sources */,
 				8CBD99DC2A08F00800A9CF20 /* TruthOrDareViewController.swift in Sources */,
+				2FA65CD72A09154C00D8BE79 /* APIClient.swift in Sources */,
 				8C5E64142A08FA510007101A /* GameDetailsViewController.swift in Sources */,
+				2FA65CE82A09A4F300D8BE79 /* UIImage+Extensions.swift in Sources */,
 				8CBD99DA2A08EA4100A9CF20 /* Igra3ViewController.swift in Sources */,
 				2F1AF6EC2A02C7B50028F78A /* SceneDelegate.swift in Sources */,
 			);
@@ -424,6 +488,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2FA65CDF2A098D8400D8BE79 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		8C1E93F92A02E1D7006620F1 /* XCRemoteSwiftPackageReference "PureLayout" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:PureLayout/PureLayout.git";
@@ -435,6 +507,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2FA65CE02A098D8400D8BE79 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FA65CDF2A098D8400D8BE79 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		8C1E93FA2A02E1D7006620F1 /* PureLayout */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8C1E93F92A02E1D7006620F1 /* XCRemoteSwiftPackageReference "PureLayout" */;

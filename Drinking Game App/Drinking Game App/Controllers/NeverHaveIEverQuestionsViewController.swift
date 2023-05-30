@@ -1,14 +1,40 @@
 
 import UIKit
 
-class NeverHaveIEverQuestionsViewController: UIViewController {
+class NeverHaveIEverQuestionsViewController: BaseViewController {
     
-    var nextQuestionButton: CustomizedButton!
+    private enum Constants {
+        static let questionSize: CGFloat = 36
+        static let animationDuration: CGFloat = 0.2
+        static let buttonSpacing: CGFloat = 100
+    }
+    
+    private let questions: [String]
+    
     var questionLabel: UILabel!
+    var stackView: UIStackView!
+    var previousQuestionButton: CustomizedButton!
+    var nextQuestionButton: CustomizedButton!
+    private var index: Int = 0 {
+        didSet {
+            previousQuestionButton.isEnabled = index != 0
+            nextQuestionButton.isEnabled = index != (questions.count - 1)
+        }
+    }
+    
+    init(questions: [String]) {
+        self.questions = questions
+        super.init(nibName: nil, bundle: nil)
+    }
 
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         buildViews()
+        addActions()
     }
     
     private func buildViews() {
@@ -18,32 +44,77 @@ class NeverHaveIEverQuestionsViewController: UIViewController {
     }
     
     private func createViews() {
+        stackView = UIStackView()
         nextQuestionButton = CustomizedButton()
+        previousQuestionButton = CustomizedButton()
         questionLabel = UILabel()
     }
     
     private func layoutViews() {
         view.addSubview(questionLabel)
+        stackView.addArrangedSubview(previousQuestionButton)
+        stackView.addArrangedSubview(nextQuestionButton)
+        view.addSubview(stackView)
+        questionLabel.autoCenterInSuperview()
+        questionLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: 16)
+        questionLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: 16)
+        questionLabel.autoPinEdge(.bottom, to: .top, of: stackView, withOffset: -16, relation: .greaterThanOrEqual)
         
-        questionLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: 40)
-        questionLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: 40)
-        questionLabel.autoPinEdge(toSuperviewSafeArea: .top, withInset: 100)
-        questionLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: 150, relation: .greaterThanOrEqual)
         
-        view.addSubview(nextQuestionButton)
-        
-        nextQuestionButton.autoPinEdge(toSuperviewEdge: .leading, withInset: 240)
-        nextQuestionButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 20)
-        nextQuestionButton.autoPinEdge(toSuperviewEdge: .top, withInset: 700)
-        nextQuestionButton.autoSetDimension(.height, toSize: 50)
+        stackView.autoPinEdge(toSuperviewSafeArea: .bottom, withInset: 16)
+        stackView.autoPinEdge(toSuperviewEdge: .leading, withInset: 16)
+        stackView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 16)
+        stackView.autoSetDimension(.height, toSize: 60)
     }
     
     private func styleViews() {
-        self.title = "Nikad nisam"
+        self.title = "Pitanja"
         view.backgroundColor = .lightGray
         questionLabel.numberOfLines = 0
-        questionLabel.text = "Nikad nisam bio/bila u striptiz baru."
-        nextQuestionButton.setTitle("Dalje", for: .normal)
+        questionLabel.text = questions[0]
+        questionLabel.textAlignment = .center
+        questionLabel.font = .systemFont(ofSize: Constants.questionSize, weight: .bold)
+
+        nextQuestionButton.setTitle("Sljedeće", for: .normal)
+        
+        previousQuestionButton.setTitle("Prethodno", for: .normal)
+        previousQuestionButton.isEnabled = false
+        
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.spacing = Constants.buttonSpacing
+    }
+    
+    private func addActions() {
+        previousQuestionButton.addTarget(self, action: #selector(previousQuestion), for: .touchUpInside)
+        nextQuestionButton.addTarget(self, action: #selector(nextQuestion), for: .touchUpInside)
+
+    }
+    
+    @objc
+    private func previousQuestion() {
+        if index > 0 {
+            index -= 1
+            animateQuestionLabel()
+        }
+    }
+    
+    @objc
+    private func nextQuestion() {
+        index += 1
+        animateQuestionLabel()
+
+    }
+    
+    private func animateQuestionLabel() {
+        UIView.animate(withDuration: Constants.animationDuration) {
+            self.questionLabel.alpha = 0
+        } completion: { _ in
+            UIView.animate(withDuration: Constants.animationDuration) {
+                self.questionLabel.text = self.questions[self.index]
+                self.questionLabel.alpha = 1
+            }
+        }
     }
 
 }

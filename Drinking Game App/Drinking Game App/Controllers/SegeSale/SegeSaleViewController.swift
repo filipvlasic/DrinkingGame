@@ -1,10 +1,3 @@
-//
-//  SegeSaleViewController.swift
-//  Drinking Game App
-//
-//  Created by Filip Vlašić on 04.06.2023..
-//
-
 import UIKit
 
 class SegeSaleViewController: BaseViewController {
@@ -205,18 +198,21 @@ class SegeSaleViewController: BaseViewController {
     }
 
     private func layoutViews() {
-        imageView.autoPinEdge(toSuperviewSafeArea: .top, withInset: 50)
-        imageView.autoSetDimensions(to: CGSize(width: 400, height: 500))
-        imageView.autoAlignAxis(toSuperviewAxis: .vertical)
+        imageView.autoPinEdge(toSuperviewSafeArea: .top, withInset: 20)
+        imageView.autoPinEdge(toSuperviewEdge: .leading, withInset: 20)
+        imageView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 20)
+        imageView.autoSetDimension(.height, toSize: 400)
         
         cardDescriptionLabel.autoPinEdge(.top, to: .bottom, of: imageView, withOffset: 10)
-        cardDescriptionLabel.autoAlignAxis(toSuperviewAxis: .vertical)
+        cardDescriptionLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: 20)
+        cardDescriptionLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: 20)
         
         nextCardButton.autoPinEdge(.top, to: .bottom, of: cardDescriptionLabel, withOffset: 20)
-        nextCardButton.autoSetDimensions(to: CGSize(width: 200, height: 50))
         nextCardButton.autoAlignAxis(toSuperviewAxis: .vertical)
+        nextCardButton.autoSetDimensions(to: CGSize(width: 200, height: 50))
+        nextCardButton.autoPinEdge(toSuperviewSafeArea: .bottom, withInset: 20)
     }
-    
+
     private func updateCard() {
         let cardImage = cardImages[currentCardIndex]
         let cardDescription = cardDescriptions[currentCardIndex]

@@ -4,6 +4,7 @@ import UIKit
 class GameDetailsViewController: UIViewController {
     
     private let titleLabel = UILabel()
+    private let scrollView = UIScrollView()
     private let descriptionLabel = UILabel()
 
     init(gameTitle: String, gameDescription: String) {
@@ -22,31 +23,28 @@ class GameDetailsViewController: UIViewController {
     }
     
     private func buildViews() {
-        createViews()
         layoutViews()
         styleViews()
-    }
-    
-    private func createViews() {
-
     }
     
     private func layoutViews() {
         view.addSubview(titleLabel)
         titleLabel.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 30, left: 16, bottom: 0, right: 16), excludingEdge: .bottom)
+     
+        scrollView.addSubview(descriptionLabel)
+        view.addSubview(scrollView)
+        scrollView.autoPinEdge(.top, to: .bottom, of: titleLabel, withOffset: 20)
+        scrollView.autoPinEdge(toSuperviewEdge: .leading, withInset: 30)
+        scrollView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 30)
+        scrollView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 30)
         
-        view.addSubview(descriptionLabel)
-        descriptionLabel.autoAlignAxis(toSuperviewAxis: .horizontal) // Center horizontally
-        descriptionLabel.autoAlignAxis(toSuperviewAxis: .vertical) // Center vertically
-        descriptionLabel.autoPinEdge(.top, to: .bottom, of: titleLabel, withOffset: 20)
-        descriptionLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: 30)
-        descriptionLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: 30)
-        descriptionLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: 30, relation: .greaterThanOrEqual)
+        descriptionLabel.autoPinEdgesToSuperviewEdges()
+        descriptionLabel.autoMatch(.width, to: .width, of: scrollView)
     }
 
     
     private func styleViews() {
-        view.backgroundColor = UIColor(red: 0.86, green: 0.79, blue: 0.69, alpha: 1.0)
+        view.backgroundColor = UIColor(red: 0.84, green: 0.79, blue: 0.69, alpha: 1.0)
         
         titleLabel.textColor = .black
         titleLabel.font = .systemFont(ofSize: 36, weight: .bold)

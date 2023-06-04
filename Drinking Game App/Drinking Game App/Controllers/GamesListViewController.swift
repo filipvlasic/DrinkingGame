@@ -11,9 +11,8 @@ class GamesListViewController: BaseViewController {
     private let apiClient: APIClient = ApiaryAPIClient()
     
     var router: AppRouter!
-    private var truthOrDareButton: CustomizedButton!
     private var neverHaveIEverButton: CustomizedButton!
-    private var trecaIgra: CustomizedButton!
+    private var segeSaleButton: CustomizedButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,54 +36,39 @@ class GamesListViewController: BaseViewController {
     }
     
     private func createViews() {
-        truthOrDareButton = CustomizedButton()
         neverHaveIEverButton = CustomizedButton()
-        trecaIgra = CustomizedButton()
+        segeSaleButton = CustomizedButton()
     }
     
     private func layoutViews() {
-        view.addSubview(truthOrDareButton)
-        
-        truthOrDareButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 30)
-        truthOrDareButton.autoPinEdge(toSuperviewEdge: .leading, withInset: 30)
-        truthOrDareButton.autoPinEdge(toSuperviewSafeArea: .top, withInset: 140)
-        truthOrDareButton.autoSetDimension(.height, toSize: 80)
         
         view.addSubview(neverHaveIEverButton)
-        
         neverHaveIEverButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 30)
         neverHaveIEverButton.autoPinEdge(toSuperviewEdge: .leading, withInset: 30)
-        neverHaveIEverButton.autoPinEdge(.top, to: .bottom, of: truthOrDareButton, withOffset: 76)
+        neverHaveIEverButton.autoPinEdge(toSuperviewSafeArea: .top, withInset: 140)
         neverHaveIEverButton.autoSetDimension(.height, toSize: 80)
         
-        view.addSubview(trecaIgra)
-        
-        trecaIgra.autoPinEdge(toSuperviewEdge: .trailing, withInset: 30)
-        trecaIgra.autoPinEdge(toSuperviewEdge: .leading, withInset: 30)
-        trecaIgra.autoPinEdge(.top, to: .bottom, of: neverHaveIEverButton, withOffset: 76)
-        trecaIgra.autoSetDimension(.height, toSize: 80)
+        view.addSubview(segeSaleButton)
+        segeSaleButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 30)
+        segeSaleButton.autoPinEdge(toSuperviewEdge: .leading, withInset: 30)
+        segeSaleButton.autoPinEdge(.top, to: .bottom, of: neverHaveIEverButton, withOffset: 76)
+        segeSaleButton.autoSetDimension(.height, toSize: 80)
     }
     
     private func styleViews() {
         self.title = "Popis Igara"
-        view.backgroundColor = .lightGray
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(
-//            image: UIImage(systemName: "xmark.circle"),
-//            style: .done,
-//            target: self,
-//            action: #selector(back))
-        
-        truthOrDareButton.setTitle("Istina izazov", for: .normal)
+        view.backgroundColor = UIColor(red: 0.96, green: 0.89, blue: 0.79, alpha: 1.00)
         
         neverHaveIEverButton.setTitle("Nikad nisam", for: .normal)
+        neverHaveIEverButton.backgroundColor = .systemMint
         
-        trecaIgra.setTitle("Treca igra", for: .normal)
+        segeSaleButton.setTitle("Šege šale", for: .normal)
+        segeSaleButton.backgroundColor = .systemPurple
     }
     
     private func addActions() {
         neverHaveIEverButton.addTarget(self, action: #selector(neverHaveIEverButtonAction), for: .touchUpInside)
-        trecaIgra.addTarget(self, action: #selector(igra3ButtonAction), for: .touchUpInside)
-        truthOrDareButton.addTarget(self, action: #selector(truthOrDareButtonAction), for: .touchUpInside)
+        segeSaleButton.addTarget(self, action: #selector(segeSaleButtonAction), for: .touchUpInside)
     }
     
     private func fetchNeverHaveIEverData(completion: @escaping (NikadNisam) -> Void) {
@@ -109,13 +93,8 @@ class GamesListViewController: BaseViewController {
         }
     }
     
-    @objc func igra3ButtonAction(sender: UIButton!) {
-        router.showIgra3Screen()
+    @objc func segeSaleButtonAction(sender: UIButton!) {
+        router.showSegeSaleScreen()
     }
-    
-    @objc func truthOrDareButtonAction(sender: UIButton!) {
-        router.showTruthOrDareScreen()
-    }
-    
     
 }

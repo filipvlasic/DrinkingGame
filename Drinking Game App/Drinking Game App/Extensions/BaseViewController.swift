@@ -16,6 +16,13 @@ class BaseViewController: UIViewController {
             style: .done,
             target: self,
             action: #selector(back))
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        navigationItem.rightBarButtonItem?.tintColor = .brown
+        navigationItem.leftBarButtonItem?.tintColor = .brown
     }
     
     @objc

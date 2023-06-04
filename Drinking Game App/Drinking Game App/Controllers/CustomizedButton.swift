@@ -14,10 +14,9 @@ class CustomizedButton: UIButton {
     
     private func setUpButton() {
         setShadow()
-        backgroundColor = UIColor(red: 76/255, green: 178/255, blue: 223/255, alpha: 1)
+        backgroundColor = UIColor(red: 1.00, green: 0.49, blue: 0.29, alpha: 1.00)
         layer.cornerRadius = 8
-        layer.borderWidth = 2
-        layer.borderColor = UIColor.systemBlue.cgColor
+        layer.borderWidth = 0
         setTitleColor(.systemGray, for: .disabled)
 
     }

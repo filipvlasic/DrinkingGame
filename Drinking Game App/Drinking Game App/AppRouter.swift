@@ -27,24 +27,14 @@ class AppRouter {
         return neverHaveIEverViewController
     }
     
-    func showIgra3Screen() {
-        let igra3ViewController = Igra3ViewController(router: self)
-        self.navigationController.pushViewController(igra3ViewController, animated: true)
-    }
-    
-    func showTruthOrDareScreen() {
-        let truthOrDareViewController = TruthOrDareViewController(router: self)
-        self.navigationController.pushViewController(truthOrDareViewController, animated: true)
+    func showSegeSaleScreen() {
+        let segeSaleViewController = SegeSaleViewController(router: self)
+        self.navigationController.pushViewController(segeSaleViewController, animated: true)
     }
     
     func showGameDetailsScreen(gameTitle: String, gameDescription: String) {
         let gameDetailsViewController = GameDetailsViewController(gameTitle: gameTitle, gameDescription: gameDescription)
         self.navigationController.present(gameDetailsViewController, animated: true)
-    }
-    
-    func showTruthOrDareQuestionsScreen() {
-        let truthOrDareQuestionsViewController = TruthOrDareQuestionsViewController(router: self)
-        self.navigationController.pushViewController(truthOrDareQuestionsViewController, animated: true)
     }
     
     func popQuestionsScreen() {

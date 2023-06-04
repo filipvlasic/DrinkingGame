@@ -36,14 +36,17 @@ class GameDetailsViewController: UIViewController {
         titleLabel.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 30, left: 16, bottom: 0, right: 16), excludingEdge: .bottom)
         
         view.addSubview(descriptionLabel)
+        descriptionLabel.autoAlignAxis(toSuperviewAxis: .horizontal) // Center horizontally
+        descriptionLabel.autoAlignAxis(toSuperviewAxis: .vertical) // Center vertically
         descriptionLabel.autoPinEdge(.top, to: .bottom, of: titleLabel, withOffset: 20)
-        descriptionLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: 30)
         descriptionLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: 30)
+        descriptionLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: 30)
         descriptionLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: 30, relation: .greaterThanOrEqual)
     }
+
     
     private func styleViews() {
-        view.backgroundColor = .lightGray
+        view.backgroundColor = UIColor(red: 0.86, green: 0.79, blue: 0.69, alpha: 1.0)
         
         titleLabel.textColor = .black
         titleLabel.font = .systemFont(ofSize: 36, weight: .bold)
@@ -51,10 +54,10 @@ class GameDetailsViewController: UIViewController {
         titleLabel.numberOfLines = 0
         
         descriptionLabel.textColor = .black
-        descriptionLabel.layer.borderColor = UIColor.blue.cgColor
-        descriptionLabel.layer.borderWidth = 1.0
+        descriptionLabel.layer.backgroundColor = UIColor(red: 0.69, green: 0.61, blue: 0.49, alpha: 1.0).cgColor
         descriptionLabel.layer.cornerRadius = 5.0
         descriptionLabel.numberOfLines = 0
+        descriptionLabel.lineBreakMode = .byWordWrapping
     }
 
 }

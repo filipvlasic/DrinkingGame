@@ -69,16 +69,18 @@ class NeverHaveIEverQuestionsViewController: BaseViewController {
     
     private func styleViews() {
         self.title = "Pitanja"
-        view.backgroundColor = .lightGray
+        view.backgroundColor = UIColor(red: 0.96, green: 0.89, blue: 0.79, alpha: 1.00)
         questionLabel.numberOfLines = 0
         questionLabel.text = questions[0]
         questionLabel.textAlignment = .center
         questionLabel.font = .systemFont(ofSize: Constants.questionSize, weight: .bold)
 
         nextQuestionButton.setTitle("Sljedeće", for: .normal)
+        nextQuestionButton.backgroundColor = .systemMint
         
         previousQuestionButton.setTitle("Prethodno", for: .normal)
         previousQuestionButton.isEnabled = false
+        previousQuestionButton.backgroundColor = .systemMint
         
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually

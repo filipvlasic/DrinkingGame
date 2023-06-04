@@ -80,14 +80,17 @@ class NeverHaveIEverViewController: BaseViewController {
     }
     
     private func styleViews() {
-        view.backgroundColor = .lightGray
+        view.backgroundColor = UIColor(red: 0.96, green: 0.89, blue: 0.79, alpha: 1.00)
         title = "Nikad nisam"
         
         chooseLabel.text = "Koliko ste hrabri?"
+        chooseLabel.font = .systemFont(ofSize: 20, weight: .bold)
         
+        segment.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemMint], for: .selected)
         segment.selectedSegmentIndex = 0
         
         startButton.setTitle("Krenimo!", for: .normal)
+        startButton.backgroundColor = .systemMint
     }
     
     private func addActions() {

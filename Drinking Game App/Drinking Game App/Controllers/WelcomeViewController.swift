@@ -53,11 +53,12 @@ class WelcomeViewController: UIViewController {
     private func layoutViews() {
         view.addSubview(welcomeLabel)
         welcomeLabel.autoAlignAxis(toSuperviewAxis: .vertical)
-        welcomeLabel.autoPinEdge(toSuperviewSafeArea: .top, withInset: 100)
+        welcomeLabel.autoPinEdge(toSuperviewSafeArea: .top, withInset: 20)
         
         view.addSubview(welcomeButton)
         welcomeButton.autoPinEdge(toSuperviewEdge: .leading, withInset: 30)
         welcomeButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 30)
+        welcomeLabel.autoPinEdge(toSuperviewSafeArea: .bottom, withInset: 500)
         welcomeButton.autoPinEdge(.top, to: .bottom, of: welcomeLabel, withOffset: 250)
         welcomeButton.autoSetDimension(.height, toSize: 60)
         

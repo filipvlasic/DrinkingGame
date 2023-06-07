@@ -1,5 +1,6 @@
 
 import UIKit
+import QuartzCore
 
 class GamesListViewController: BaseViewController {
     

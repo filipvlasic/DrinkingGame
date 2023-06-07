@@ -87,7 +87,6 @@ class WelcomeViewController: UIViewController {
         
         checkboxButton.setImage(UIImage(named: "checkbox_unchecked"), for: .normal)
         checkboxButton.setImage(UIImage(named: "checkbox_checked"), for: .selected)
-        checkboxButton.addTarget(self, action: #selector(checkboxButtonAction), for: .touchUpInside)
         
         checkboxLabel.text = "Prihvaćam odgovornost igranja"
         checkboxLabel.font = UIFont.systemFont(ofSize: 16)
@@ -96,6 +95,7 @@ class WelcomeViewController: UIViewController {
     
     private func addActions() {
         welcomeButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        checkboxButton.addTarget(self, action: #selector(checkboxButtonAction), for: .touchUpInside)
     }
     
     @objc func buttonAction(sender: UIButton!) {

@@ -32,9 +32,20 @@ class AppRouter {
         self.navigationController.pushViewController(segeSaleViewController, animated: true)
     }
     
+    func showTruthOrDareScreen() -> TruthOrDareViewController {
+        let truthOrDareViewController = TruthOrDareViewController(router: self)
+        self.navigationController.pushViewController(truthOrDareViewController, animated: true)
+        return truthOrDareViewController
+    }
+    
     func showGameDetailsScreen(gameTitle: String, gameDescription: String) {
         let gameDetailsViewController = GameDetailsViewController(gameTitle: gameTitle, gameDescription: gameDescription)
         self.navigationController.present(gameDetailsViewController, animated: true)
+    }
+    
+    func showTruthOrDareQuestionsScreen(with questions: [String]) {
+        let truthOrDareQuestionsViewController = TruthOrDareQuestionsViewController(router: self, questions: questions)
+        self.navigationController.pushViewController(truthOrDareQuestionsViewController, animated: true)
     }
     
     func popQuestionsScreen() {

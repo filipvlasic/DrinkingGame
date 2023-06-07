@@ -20,6 +20,10 @@
 		2FA65CE12A098D8400D8BE79 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA65CE02A098D8400D8BE79 /* Alamofire */; };
 		2FA65CE62A099A4400D8BE79 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA65CE52A099A4400D8BE79 /* BaseViewController.swift */; };
 		2FA65CE82A09A4F300D8BE79 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA65CE72A09A4F300D8BE79 /* UIImage+Extensions.swift */; };
+		2FAA6A742A2E26B300EACE64 /* TruthOrDareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA6A732A2E26B300EACE64 /* TruthOrDareViewController.swift */; };
+		2FAA6A762A2E272500EACE64 /* TruthOrDareQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA6A752A2E272500EACE64 /* TruthOrDareQuestionsViewController.swift */; };
+		2FAA6A782A2E275000EACE64 /* IstinaIzazov.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA6A772A2E275000EACE64 /* IstinaIzazov.swift */; };
+		2FAA6A7A2A2E27D100EACE64 /* AMIstinaIzazov.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA6A792A2E27D100EACE64 /* AMIstinaIzazov.swift */; };
 		8C1E93FB2A02E1D7006620F1 /* PureLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 8C1E93FA2A02E1D7006620F1 /* PureLayout */; };
 		8C5E64142A08FA510007101A /* GameDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5E64132A08FA510007101A /* GameDetailsViewController.swift */; };
 		8C5E64182A0906FB0007101A /* NeverHaveIEverQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5E64172A0906FB0007101A /* NeverHaveIEverQuestionsViewController.swift */; };
@@ -45,6 +49,10 @@
 		2FA65CDD2A098C3B00D8BE79 /* ApiaryAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiaryAPIClient.swift; sourceTree = "<group>"; };
 		2FA65CE52A099A4400D8BE79 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2FA65CE72A09A4F300D8BE79 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		2FAA6A732A2E26B300EACE64 /* TruthOrDareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TruthOrDareViewController.swift; sourceTree = "<group>"; };
+		2FAA6A752A2E272500EACE64 /* TruthOrDareQuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TruthOrDareQuestionsViewController.swift; sourceTree = "<group>"; };
+		2FAA6A772A2E275000EACE64 /* IstinaIzazov.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IstinaIzazov.swift; sourceTree = "<group>"; };
+		2FAA6A792A2E27D100EACE64 /* AMIstinaIzazov.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMIstinaIzazov.swift; sourceTree = "<group>"; };
 		8C5E64132A08FA510007101A /* GameDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsViewController.swift; sourceTree = "<group>"; };
 		8C5E64172A0906FB0007101A /* NeverHaveIEverQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeverHaveIEverQuestionsViewController.swift; sourceTree = "<group>"; };
 		8C7903DA2A0660A500DE1D4A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +112,7 @@
 		2F1AF7012A02D0170028F78A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2FAA6A722A2E26A100EACE64 /* IstinaIzazov */,
 				2F47FC502A2C9DE2009F0F66 /* SegeSale */,
 				2FA65CDC2A0915B100D8BE79 /* NikadNisam */,
 				8C7903DC2A0660DD00DE1D4A /* GamesListViewController.swift */,
@@ -124,6 +133,7 @@
 		2F1AF7032A02D0290028F78A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2FAA6A772A2E275000EACE64 /* IstinaIzazov.swift */,
 				2FA65CDA2A09158600D8BE79 /* NikadNisam.swift */,
 			);
 			path = Models;
@@ -159,6 +169,7 @@
 		2FA65CD52A09154C00D8BE79 /* APIModel */ = {
 			isa = PBXGroup;
 			children = (
+				2FAA6A792A2E27D100EACE64 /* AMIstinaIzazov.swift */,
 				2FA65CD62A09154C00D8BE79 /* AMNikadNisam.swift */,
 			);
 			path = APIModel;
@@ -180,6 +191,15 @@
 				2FA65CE72A09A4F300D8BE79 /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2FAA6A722A2E26A100EACE64 /* IstinaIzazov */ = {
+			isa = PBXGroup;
+			children = (
+				2FAA6A752A2E272500EACE64 /* TruthOrDareQuestionsViewController.swift */,
+				2FAA6A732A2E26B300EACE64 /* TruthOrDareViewController.swift */,
+			);
+			path = IstinaIzazov;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,13 +283,17 @@
 				8CBD99DE2A08F38900A9CF20 /* CustomizedButton.swift in Sources */,
 				8C7903DD2A0660DD00DE1D4A /* GamesListViewController.swift in Sources */,
 				2FA65CD82A09154C00D8BE79 /* MockAPIClient.swift in Sources */,
+				2FAA6A762A2E272500EACE64 /* TruthOrDareQuestionsViewController.swift in Sources */,
 				8CBD99D82A08EA3000A9CF20 /* NeverHaveIEverViewController.swift in Sources */,
+				2FAA6A7A2A2E27D100EACE64 /* AMIstinaIzazov.swift in Sources */,
 				2FA65CE62A099A4400D8BE79 /* BaseViewController.swift in Sources */,
+				2FAA6A742A2E26B300EACE64 /* TruthOrDareViewController.swift in Sources */,
 				8C7903DB2A0660A500DE1D4A /* WelcomeViewController.swift in Sources */,
 				2FA65CD92A09154C00D8BE79 /* AMNikadNisam.swift in Sources */,
 				2F1AF6EA2A02C7B50028F78A /* AppDelegate.swift in Sources */,
 				8C7903DF2A06616400DE1D4A /* AppRouter.swift in Sources */,
 				8C5E64182A0906FB0007101A /* NeverHaveIEverQuestionsViewController.swift in Sources */,
+				2FAA6A782A2E275000EACE64 /* IstinaIzazov.swift in Sources */,
 				2F47FC522A2C9DF4009F0F66 /* SegeSaleViewController.swift in Sources */,
 				2FA65CDE2A098C3B00D8BE79 /* ApiaryAPIClient.swift in Sources */,
 				2FA65CDB2A09158600D8BE79 /* NikadNisam.swift in Sources */,

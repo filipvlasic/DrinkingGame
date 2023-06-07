@@ -29,6 +29,4 @@ class CustomizedButton: UIButton {
         clipsToBounds = true
         layer.masksToBounds = false
     }
-    
-
 }

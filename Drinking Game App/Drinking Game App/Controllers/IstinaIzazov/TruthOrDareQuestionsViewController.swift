@@ -49,7 +49,7 @@ class TruthOrDareQuestionsViewController: BaseViewController {
     private func layoutViews() {
         view.addSubview(questionLabel)
         
-        questionLabel.autoCenterInSuperview()
+        questionLabel.autoPinEdge(toSuperviewEdge: .top, withInset: 200)
         questionLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: 16)
         questionLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: 16)
         
@@ -57,8 +57,9 @@ class TruthOrDareQuestionsViewController: BaseViewController {
         
         nextQuestionButton.autoPinEdge(toSuperviewEdge: .leading, withInset: 240)
         nextQuestionButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 20)
-        nextQuestionButton.autoPinEdge(toSuperviewEdge: .top, withInset: 700)
+        nextQuestionButton.autoPinEdge(.top, to: .bottom, of: questionLabel, withOffset: 200)
         nextQuestionButton.autoSetDimension(.height, toSize: 50)
+        nextQuestionButton.autoPinEdge(toSuperviewEdge: .bottom, withInset: 40)
     }
     
     private func styleViews() {
